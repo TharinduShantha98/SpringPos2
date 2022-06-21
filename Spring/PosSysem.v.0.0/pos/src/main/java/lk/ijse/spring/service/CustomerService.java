@@ -15,4 +15,6 @@ public interface CustomerService {
     public Customer searchCustomer(String id);
 
     public List<CustomerDto> getAllCustomer();
+
+
 }
