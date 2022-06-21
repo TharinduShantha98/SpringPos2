@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 
 @Service
@@ -25,22 +26,50 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public void saveCustomer(CustomerDto customerDto) {
+        Customer map = modelMapper.map(customerDto, Customer.class);
+
+        if (!customerRepo.existsById(map.getCustomerId())) {
+            customerRepo.save(map);
+        }else {
+            throw  new RuntimeException("customer Already exists...!");
+        }
 
     }
 
     @Override
     public void deleteCustomer(String id) {
+        if (customerRepo.existsById(id)) {
+            customerRepo.deleteById(id);
+
+        }else{
+            throw new RuntimeException("Customer not found");
+        }
 
     }
 
     @Override
     public void updateCustomer(CustomerDto customerDto) {
+        Customer customer = modelMapper.map(customerDto, Customer.class);
+
+
+
+        if(customerRepo.existsById(customer.getCustomerId())){
+            customerRepo.save(customer);
+        }else{
+            throw new RuntimeException("Customer not found for update customer");
+        }
 
     }
 
     @Override
     public Customer searchCustomer(String id) {
-        return null;
+        if(customerRepo.existsById(id)){
+            Optional<Customer> byId = customerRepo.findById(id);
+
+            return byId.get();
+        }else{
+            throw new RuntimeException("Customer not found for search customer");
+        }
     }
 
     @Override
