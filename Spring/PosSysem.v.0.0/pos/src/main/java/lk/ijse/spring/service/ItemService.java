@@ -11,6 +11,9 @@ public interface ItemService {
     public void updateItem(ItemDto ItemDto);
     public void deleteItem(String id);
     public  ItemDto searchItem(String id);
+    public List<String> getAllIds();
+
+
 
 
 

@@ -16,5 +16,7 @@ public interface CustomerService {
 
     public List<CustomerDto> getAllCustomer();
 
+    public  List<String> getAllCustomerIds();
+
 
 }

@@ -78,4 +78,9 @@ public class ItemServiceImpl  implements ItemService {
             throw new RuntimeException("this is item can not found");
         }
     }
+
+    @Override
+    public List<String> getAllIds() {
+        return itemRepo.getAllItemsIds();
+    }
 }

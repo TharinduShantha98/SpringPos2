@@ -55,6 +55,13 @@ public class ItemController {
     }
 
 
+    @GetMapping(path = "getIds")
+    public ResponseUtil getAllItemIds(){
+        List<String> allIds = itemService.getAllIds();
+        return  new ResponseUtil(200, "get all item Ids ", allIds);
+    }
+
+
 
 
 

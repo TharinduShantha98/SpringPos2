@@ -64,6 +64,15 @@ public class CustomerController {
 
     }
 
+    @GetMapping(path = "getIds")
+    public ResponseUtil getAllCustomerIds(){
+        System.out.println("get all customer ids");
+
+        List<String> allCustomerIds = customerService.getAllCustomerIds();
+        return new ResponseUtil(200,"SuccessFul",allCustomerIds);
+
+    }
+
 
 
 

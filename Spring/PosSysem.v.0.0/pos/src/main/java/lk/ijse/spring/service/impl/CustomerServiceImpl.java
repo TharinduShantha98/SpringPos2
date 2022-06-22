@@ -85,4 +85,11 @@ public class CustomerServiceImpl implements CustomerService {
 
         return customerDtoList;
     }
+
+    @Override
+    public List<String> getAllCustomerIds() {
+        return customerRepo.getAllCustomerIds();
+
+
+    }
 }

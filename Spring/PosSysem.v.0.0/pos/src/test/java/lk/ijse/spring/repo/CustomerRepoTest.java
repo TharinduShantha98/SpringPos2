@@ -30,7 +30,6 @@ class CustomerRepoTest {
 
         for (String c1: allByCustomerId
              ) {
-
             System.out.println(c1);
 
         }
