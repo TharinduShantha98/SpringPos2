@@ -9,21 +9,25 @@ import lombok.ToString;
 import java.util.List;
 
 
-@AllArgsConstructor
 @NoArgsConstructor
 @Data
 @ToString
 public class OrderDto {
     private  String orderId;
-    private  String customerId;
     private  double totalPrice;
     private  double profit;
     private String dataAndTime;
 
     private CustomerDto customerDto;
-    private List<OrderDetail> orderDetailList;
+    private List<OrderDetailDto> orderDetailLists;
 
-
-
-
+    public OrderDto(String orderId, double totalPrice, double profit, String dataAndTime,
+                    CustomerDto customerDto, List<OrderDetailDto> orderDetailLists) {
+        this.orderId = orderId;
+        this.totalPrice = totalPrice;
+        this.profit = profit;
+        this.dataAndTime = dataAndTime;
+        this.customerDto = customerDto;
+        this.orderDetailLists = orderDetailLists;
+    }
 }

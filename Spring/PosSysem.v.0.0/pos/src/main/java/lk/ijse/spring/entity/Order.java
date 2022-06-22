@@ -15,19 +15,19 @@ import java.util.List;
 @NoArgsConstructor
 @Data
 @ToString
-@Entity
+@Entity(name = "Orders")
 public class Order {
 
     @Id
     private  String orderId;
-    private  String customerId;
+   /* private  String customerId;*/
     private  double totalPrice;
     private  double profit;
     private String dataAndTime;
 
 
     @ManyToOne(cascade = {CascadeType.REFRESH, CascadeType.DETACH})
-    @JoinColumn(name = "customerId", referencedColumnName = "customerId")
+    @JoinColumn(name = "customerId", referencedColumnName = "customerId",nullable = false)
     private Customer customer;
 
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
