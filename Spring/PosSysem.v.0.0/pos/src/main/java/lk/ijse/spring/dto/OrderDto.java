@@ -12,6 +12,7 @@ import java.util.List;
 @NoArgsConstructor
 @Data
 @ToString
+
 public class OrderDto {
     private  String orderId;
     private  double totalPrice;
@@ -30,4 +31,5 @@ public class OrderDto {
         this.customerDto = customerDto;
         this.orderDetailLists = orderDetailLists;
     }
+
 }
