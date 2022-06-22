@@ -9,6 +9,8 @@ import lk.ijse.spring.util.ResponseUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.SQLOutput;
+
 @RestController
 @RequestMapping("order")
 @CrossOrigin
@@ -24,8 +26,23 @@ public class PurchaseOrderController  {
 
         System.out.println(orderDto.toString());
 
+        System.out.println(orderDto.getDataAndTime());
+        System.out.println(orderDto.getTotalPrice());
+
+
         purchaseOrderService.purchaseOrder(orderDto);
         return new ResponseUtil(200,"Successfully purchaseOrder",null);
+
+
+    }
+
+
+
+    @GetMapping(path = "getId")
+    public ResponseUtil getOrderId(){
+        String orderId = purchaseOrderService.createOrderId();
+
+        return new ResponseUtil(200,"Successfully get last Order id", orderId);
 
 
     }

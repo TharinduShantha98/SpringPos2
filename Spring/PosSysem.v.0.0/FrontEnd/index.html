@@ -2152,20 +2152,25 @@
         createObject();
 
 
+
         //let saleText =  sale.toString();
         //let profitText = profit.toString();
 
 
 
         console.log(customerDto);
+        console.log(dateAndTime);
+        console.log(sale);
+        console.log(typeof (sale))
+
 
 
 
         let jsonData  = JSON.stringify({
             "orderId": orderId,
-            "sale": sale,
+            "totalPrice": parseFloat(sale),
             "profit": profit,
-            "dateAndTime": dateAndTime,
+            "dataAndTime": dateAndTime,
             "customerDto":customerDto,
             "orderDetailLists": dataArray
 
@@ -2273,18 +2278,18 @@
     }
 
 
-    //getOrderId();
+   getOrderId();
     function getOrderId() {
 
 
         $.ajax({
-            url: "http://localhost:8080/posSystemV2/order?option=GET_ORDER_ID",
+            url: "http://localhost:8080/pos_war/order/getId",
             method: "GET",
 
             success: function (resp) {
-                if(resp.status == 200){
-                    console.log(resp.orderId)
-                    $("#lblOrderId").text(resp.orderId)
+                if(resp.code == 200){
+                    console.log(resp.data)
+                    $("#lblOrderId").text(resp.data)
                 }
 
 

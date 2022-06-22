@@ -73,4 +73,22 @@ public class PurchaseOrderServiceImpl  implements PurchaseOrderService {
         }
 
     }
+
+    @Override
+    public String createOrderId() {
+        Order topByOrderByOrderIdDesc = orderRepo.findTopByOrderByOrderIdDesc();
+        if(topByOrderByOrderIdDesc == null){
+            return "O-100";
+        }else{
+            int tempId  = Integer.parseInt(topByOrderByOrderIdDesc.getOrderId().split("-")[1]);
+            tempId =  tempId+ 1;
+            return "O-"+tempId;
+
+
+        }
+
+
+
+
+    }
 }
