@@ -7,8 +7,10 @@ import lk.ijse.spring.config.WebAppConfig;
 import lk.ijse.spring.dto.CustomerDto;
 import lk.ijse.spring.dto.OrderDetailDto;
 import lk.ijse.spring.dto.OrderDto;
+import lk.ijse.spring.entity.Item;
 import lk.ijse.spring.entity.Order;
 import lk.ijse.spring.entity.OrderDetail;
+import lk.ijse.spring.repo.ItemRepo;
 import lk.ijse.spring.repo.OrderDetailRepo;
 import lk.ijse.spring.repo.OrderRepo;
 import org.junit.jupiter.api.Test;
@@ -21,6 +23,7 @@ import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -38,6 +41,9 @@ class PurchaseOrderServiceImplTest {
 
     @Autowired
     OrderDetailRepo orderDetailRepo;
+
+    @Autowired
+    ItemRepo itemRepo;
 
     @Autowired
     ModelMapper modelMapper;
@@ -71,10 +77,29 @@ class PurchaseOrderServiceImplTest {
 
                 for (OrderDetail orderDetails : order.getOrderDetailList()
                 ) {
+                    Item item = orderDetails.getItem();
+                    System.out.println(item.getItemCode());
+
+
+                    if(itemRepo.existsById(item.getItemCode())){
+                        Optional<Item> byId = itemRepo.findById(item.getItemCode());
+                        Item item1 = byId.get();
+                        double quantity = item1.getQuantity();
+                        item1.setQuantity(quantity-orderDetails.getSaleQty());
+                       //System.out.println(item1.toString());
+                        itemRepo.save(item1);
+
+
+                    }
+
+
+
 
 
                 }
 
+            }else{
+                throw  new RuntimeException("Purchase order failed..!");
             }
 
     }
