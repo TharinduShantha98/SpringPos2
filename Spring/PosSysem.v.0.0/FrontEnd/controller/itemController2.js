@@ -322,7 +322,7 @@ $("#itemCode").keyup(function (event) {
         $("#validationI1").text("");
         checkButton();
     }else{
-        $("#validationI1").text("Input format-(I00-000)")
+        $("#validationI1").text("Input format-(I-000)")
         $("#validationI1").css("color", "red");
         $("#validationI1").css("font-weight", "bold");
     }

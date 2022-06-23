@@ -388,7 +388,7 @@ $('#customerId,#customerFName,#customerLName,#customerAddress,#customerTelNum,#c
 
 
       }else{
-          $("#validationC6").text("input format(C00-***)");
+          $("#validationC6").text("input format(C-***)");
           $("#validationC6").css("color", "red");
           $("#validationC6").css("font-weight", "bold");
 
