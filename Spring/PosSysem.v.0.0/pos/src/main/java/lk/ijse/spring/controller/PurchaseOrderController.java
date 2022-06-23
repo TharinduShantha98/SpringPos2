@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.sql.SQLOutput;
+import java.util.List;
 
 @RestController
 @RequestMapping("order")
@@ -43,6 +44,14 @@ public class PurchaseOrderController  {
         String orderId = purchaseOrderService.createOrderId();
 
         return new ResponseUtil(200,"Successfully get last Order id", orderId);
+
+
+    }
+
+    @GetMapping(path = "getAllOrders")
+    public ResponseUtil getAllOrder(){
+        List<OrderDto> allOrders = purchaseOrderService.getAllOrders();
+        return  new ResponseUtil(200,"successFully getAll orders", allOrders);
 
 
     }

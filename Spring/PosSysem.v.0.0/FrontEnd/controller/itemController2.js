@@ -3,7 +3,6 @@ $("#updateItem").prop('disabled',true);
 $("#deleteItem").prop('disabled',true);
 
 
-/*
 getAllItem();
 
 
@@ -14,7 +13,7 @@ function getAllItem() {
     let getAll =  "GETALL";
 
     $.ajax({
-        url: "http://localhost:8080/posSystemV2/item?option="+ getAll,
+        url: "http://localhost:8080/pos_war/item",
         method: "GET",
 
 
@@ -24,7 +23,7 @@ function getAllItem() {
 
 
                 let row = `<tr><td>${item.itemCode}</td><td>${item.itemName}</td><td>${item.unitPrice}</td><td>${item.packSize}</td><td>${item.buyingPrice}</td>
-                <td>${item.quantity}</td></tr>`;
+                    <td>${item.quantity}</td></tr>`;
                 $("#itemTable").append(row);
 
             }
@@ -44,12 +43,13 @@ $("#btnItemSearch").click(function () {
     let search = "SEARCH";
 
     $.ajax({
-        url: "http://localhost:8080/posSystemV2/item?option="+ search+"&itemCode="+itemCode,
+        url: "http://localhost:8080/pos_war/item/search?id="+itemCode,
         method: "GET",
         success: function (resp) {
-            if(resp.status == 200){
+            if(resp.code == 200){
                 let itemName  = resp.data.itemName;
-                $("#itemCode").val(resp.data.itemcode);
+                console.log(itemName);
+                $("#itemCode").val(resp.data.itemCode);
                 $("#itemName").val(resp.data.itemName);
                 $("#itemUnitPrice").val(resp.data.unitPrice);
                 $("#itemBuyingPrice").val(resp.data.buyingPrice);
@@ -59,9 +59,6 @@ $("#btnItemSearch").click(function () {
             }
 
         }
-
-
-
 
     })
 
@@ -76,25 +73,26 @@ $("#addItem").click(function () {
     let data = $("#itemForm").serialize();
 
     $.ajax({
-        url: "http://localhost:8080/posSystemV2/item",
+        url: "http://localhost:8080/pos_war/item",
         method: "POST",
         data: data,
         success: function (resp) {
-            if(resp.status == 200){
+            if(resp.code == 200){
                 alert(resp.message);
                 getAllItem();
                 getItemCode();
                 $("#addItem").prop('disabled',true);
-            }else if(resp.status == 500){
+            }else if(resp.code == 500){
                 alert(resp.message);
 
-            }else if (resp.status == 400){
+            }else if (resp.code == 400){
                 alert(resp.message);
 
             }
 
+        },error: function (ob,textStatus, error) {
+            alert(ob.responseJSON.message)
         }
-
     })
 
 })
@@ -116,33 +114,33 @@ $("#updateItem").click(function () {
         "unitPrice": unitPrice,
         "buyingPrice": buyingPrice,
         "packSize": packSize,
-        "Qty": itemQty
+        "quantity": itemQty
     });
 
 
 
 
     $.ajax({
-        url: "http://localhost:8080/posSystemV2/item",
+        url: "http://localhost:8080/pos_war/item",
         method: "PUT",
         data: data,
         contentType: "application/json",
         success: function (resp) {
 
-            if(resp.status == 200){
+            if(resp.code == 200){
                 alert(resp.message);
                 getAllItem();
-            }else if(resp.status == 400){
+            }else if(resp.code == 400){
                 alert(resp.message);
-            }else if(resp.status == 500){
+            }else if(resp.code == 500){
                 alert(resp.message);
             }
 
 
+        },error: function (ob, textStatus,error) {
+            alert(ob.responseJSON.message)
+
         }
-
-
-
 
     })
 
@@ -204,17 +202,17 @@ $("#deleteItem").click(function () {
     let itemCode = $("#itemCode").val();
 
     $.ajax({
-        url:"http://localhost:8080/posSystemV2/item?itemCode="+ itemCode ,
+        url:"http://localhost:8080/pos_war/item?id="+ itemCode ,
         method: "DELETE",
 
         success:function (resp) {
-            if(resp.status == 200){
+            if(resp.code == 200){
                 alert(resp.message);
                 getAllItem();
-            }else if(resp.status == 500){
+            }else if(resp.code == 500){
                 alert(resp.message);
 
-            }else if(resp.status == 400){
+            }else if(resp.code == 400){
                 alert(resp.message);
             }
         }
@@ -224,7 +222,7 @@ $("#deleteItem").click(function () {
 })
 
 
-getItemCode();
+//getItemCode();
 
 function getItemCode() {
     $.ajax({
@@ -244,7 +242,8 @@ function getItemCode() {
     })
 
 }
-*/
+
+
 
 
 

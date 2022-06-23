@@ -4,6 +4,7 @@ import lk.ijse.spring.dto.OrderDto;
 import lk.ijse.spring.entity.Item;
 import lk.ijse.spring.entity.Order;
 import lk.ijse.spring.entity.OrderDetail;
+import lk.ijse.spring.repo.CustomerRepo;
 import lk.ijse.spring.repo.ItemRepo;
 import lk.ijse.spring.repo.OrderDetailRepo;
 import lk.ijse.spring.repo.OrderRepo;
@@ -13,6 +14,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -27,6 +30,9 @@ public class PurchaseOrderServiceImpl  implements PurchaseOrderService {
 
     @Autowired
     ItemRepo itemRepo;
+
+    @Autowired
+    CustomerRepo customerRepo;
 
 
     @Autowired
@@ -87,6 +93,35 @@ public class PurchaseOrderServiceImpl  implements PurchaseOrderService {
 
         }
 
+
+
+
+    }
+
+    @Override
+    public List<OrderDto> getAllOrders() {
+
+        List<Order> all = orderRepo.findAll();
+        List<OrderDto> allDto = new ArrayList<>();
+
+
+
+
+        for (Order o1 :all
+             ) {
+            allDto.add(modelMapper.map(o1,OrderDto.class));
+
+        }
+
+        return allDto;
+
+
+
+
+    }
+
+
+    private void getCustomerForOrder(){
 
 
 

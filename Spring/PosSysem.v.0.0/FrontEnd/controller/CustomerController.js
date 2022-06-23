@@ -1,7 +1,7 @@
 /*===================================================customer part=============================*/
-$("#addCustomer").prop('disabled',true);
-$("#updateCustomer").prop('disabled',true);
-$("#deleteCustomer").prop('disabled',true);
+  $("#addCustomer").prop('disabled',true);
+  $("#updateCustomer").prop('disabled',true);
+  $("#deleteCustomer").prop('disabled',true);
 
 //$("#customerId").attr('disabled', true);
 
@@ -13,15 +13,14 @@ function getAllCustomer() {
     $("#customerTable").empty();
 
     $.ajax({
-        url: "http://localhost:8080/10_SpringWithMaven_war/api/v1/customer",
+        url: "http://localhost:8080/pos_war/customer",
         method: "GET",
 
         success: function (resp) {
-            for (const customerD of resp.data ){
-                console.log(resp.data);
-
-                let newRow = `<tr><td>${customers.id}</td></td><td>${customers.name}</td><td>${"aaaa"}
-                                </td><td>${customers.address}</td><td>${""}</td><td>${customers.salary}</td></tr>`;
+            console.log(resp);
+            for (const customers of resp.data ){
+                let newRow = `<tr><td>${customers.customerId}</td></td><td>${customers.firstName}</td><td>${customers.lastName}
+                                </td><td>${customers.address}</td><td>${customers.email}</td><td>${customers.telNo}</td></tr>`;
                 $("#customerTable").append(newRow);
 
 
@@ -41,20 +40,22 @@ $("#btnCustomerSearch").click(function () {
     let cusId = $("#customerSearch").val();
 
     $.ajax({
-        url:"http://localhost:8080/posSystemV2/customer?option=SEARCH&customerId="+ cusId,
+        url:"http://localhost:8080/pos_war/customer/search?id="+ cusId,
         method: "GET",
 
         success: function (resp) {
-            if(resp.status == 200){
-                $("#customerId").val(resp.data.itemCode);
-                $("#customerFName").val(resp.data.itemFName);
-                $("#customerLName").val(resp.data.itemLName);
+            if(resp.code == 200){
+                $("#customerId").val(resp.data.customerId);
+                $("#customerFName").val(resp.data.firstName);
+                $("#customerLName").val(resp.data.lastName);
                 $("#customerAddress").val(resp.data.address);
                 $("#customerEmail").val(resp.data.email);
                 $("#customerTelNum").val(resp.data.telNo);
 
             }
 
+        },error: function (ob, textStatus, error) {
+            alert(ob.responseJSON.message)
         }
 
 
@@ -77,31 +78,27 @@ $("#addCustomer").click(function () {
 
 
 
-
-
-
-
     let data = $("#customerForm").serialize();
 
 
     $.ajax({
-        url: "http://localhost:8080/posSystemV2/customer",
+        url: "http://localhost:8080/pos_war/customer",
         method: "POST",
         data: data,
         success: function (resp) {
 
-            if(resp.status == 200){
+            if(resp.code == 200){
                 alert(resp.message);
                 getAllCustomer();
 
-            }else if(resp.status == 400){
-                alert(resp.message);
-            }
+            }/*else if(resp.code == 500){
+                    alert(resp.message);
+                }*/
 
 
         },
-        error: function () {
-
+        error: function (ob, textStatus, error) {
+            alert(ob.responseJSON.message)
         }
 
 
@@ -168,30 +165,35 @@ $("#updateCustomer").click(function () {
 
     let jsonData  =  JSON.stringify({
         "customerId": customerId,
-        "customerFName": customerFName,
-        "customerLName": customerLName,
-        "customerAddress": customerAddress,
-        "customerEmail": customerEmail,
-        "customerTelNo": customerTelNo
+        "firstName": customerFName,
+        "lastName": customerLName,
+        "address": customerAddress,
+        "email": customerEmail,
+        "telNo": customerTelNo
     })
 
 
 
     $.ajax({
-        url:"http://localhost:8080/posSystemV2/customer",
+        url:"http://localhost:8080/pos_war/customer",
         method: "PUT",
         data: jsonData,
+        contentType: "application/json",
         success: function (reap) {
 
-            if(reap.status ==  200){
+            if(reap.code ==  200){
                 alert(reap.message);
                 console.log(reap.message);
                 getAllCustomer();
-            }else if(reap.status == 400){
-                alert(reap.message);
-            }else if(reap.status){
-                alert(reap.message);
-            }
+            }/*else if(reap.code == 400){
+                    alert("not success");
+                }else if(reap.code == 500){
+                    alert("not success");
+                }*/
+
+        },
+        error: function (ob,textStatus, error) {
+            alert(ob.responseJSON.message)
 
         }
 
@@ -210,19 +212,23 @@ $("#deleteCustomer").click(function () {
 
 
     $.ajax({
-        url: "http://localhost:8080/11_SpringDataJPA_war/customer?id=" + customerId,
+        url: "http://localhost:8080/pos_war/customer?id=" + customerId,
         method: "DELETE",
 
 
         success: function (resp) {
-            if(resp.status == 200){
+            if(resp.code == 200){
                 alert(resp.message);
                 getAllCustomer();
-                getCustomerId();
+                // getCustomerId();
 
-            }else if(resp.status == 500){
+            }else if(resp.code == 500){
                 alert(resp.message);
             }
+
+        },
+        error: function (ob,textStatus, error) {
+            alert(ob.responseJSON.message)
 
         }
     })
@@ -232,7 +238,7 @@ $("#deleteCustomer").click(function () {
 })
 
 
-getCustomerId();
+// getCustomerId();
 
 function getCustomerId() {
     $.ajax({
@@ -317,6 +323,7 @@ function clearCustomerTextField(){
 
 
 }
+
 
 
 
