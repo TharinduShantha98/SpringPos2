@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="14_fileUploader:war">
+    <output-path>$PROJECT_DIR$/14_fileUploader/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>14_fileUploader</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="14_fileUploader-1.0.0.war">
+      <element id="artifact" artifact-name="14_fileUploader:war exploded" />
+    </root>
+  </artifact>
+</component>
