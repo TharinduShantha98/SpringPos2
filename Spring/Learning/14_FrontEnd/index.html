@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" >
+
+
+
+    <style>
+        #header{
+            background-color: black;
+            color: white;
+
+        }
+
+
+
+
+    </style>
+
+
+
+</head>
+<body>
+<h1 id="header">Customer file upload</h1>
+<form id="customerForm">
+    <div class="row">
+        <div class=" col-sm-12 col-lg-8" >
+
+
+            <label class="form-label fw-bold text-dark">Add New Customer </label>
+
+            <div>
+                <label class="form-label  text-primary m-0">CustomerId </label>
+            </div>
+            <div class="input-group mb-1">
+                <input type="text" name="customerId" class="form-control me-3 " id="customerId" placeholder="customer Id" aria-label="customerId" aria-describedby="basic-addon1">
+                <p class="form-label   ms-1 mt-2 " id="validationC6"> </p>
+            </div>
+
+
+
+
+            <div class="row">
+                <div  class="col-lg-6">
+                    <label class="form-label  text-primary m-0">First Name </label>
+                    <div class="input-group mb-1">
+                        <input id="customerFName" type="text" name= "firstName" class="form-control " placeholder="First name" aria-label="First Name" aria-describedby="basic-addon1">
+                        <p class="form-label   ms-1  me-3 mt-2 " id="validationC1"> </p>
+                    </div>
+                    <label class="form-label  text-primary m-0">Address </label>
+                    <div class="input-group mb-1">
+                        <input id="customerAddress" type="text"  name="address" class="form-control" placeholder="Address" aria-label="Address" aria-describedby="basic-addon2">
+                        <p class="form-label   ms-1  me-3 mt-2 " id="validationC3"> </p>
+                    </div>
+
+
+
+                </div>
+
+
+
+                <div class="col-lg-6">
+                    <label class="form-label  text-primary m-0">Last Name </label>
+                    <div class="input-group mb-1">
+                        <input id="customerLName" type="text"  name="lastName" class="form-control" placeholder="Last name" aria-label="Last Name" aria-describedby="basic-addon1">
+                        <p class="form-label   ms-1  me-3 mt-2 " id="validationC2"> </p>
+                    </div>
+
+                    <label class="form-label  text-primary m-0">Tel Number </label>
+                    <div class="input-group mb-1">
+                        <input id="customerTelNum" type="text" name="telNo" class="form-control " placeholder="Tel number " aria-label="tel Number" aria-describedby="basic-addon2">
+                        <p class="form-label   ms-1  me-3 mt-2 " id="validationC5"> </p>
+                    </div>
+
+                </div>
+
+            </div>
+            <label class="form-label  text-primary m-0">Email Address </label>
+            <div class="input-group mb-3">
+                <input id="customerEmail" type="text"  name="email" class="form-control" placeholder="Email" aria-label="Email" aria-describedby="basic-addon2">
+                <p class="form-label   ms-1  me-3 mt-2 " id="validationC4"> </p>
+            </div>
+            <div class="mb-3">
+                <label for="formFile" class="form-label text-primary m-0">Add Customer image </label>
+                <input class="form-control" type="file" id="formFile">
+            </div>
+
+
+
+
+
+        </div>
+
+        <div class="col-lg-4 mt-2" >
+
+            <div>
+                <h1 class="fs-2" id="customerManage">Customer Manage</h1>
+
+            </div>
+            <div class="mt-2">
+                <input name="customerSearch" type="text" class="form-control ms-2 border-dark" id="customerSearch" placeholder="Search Customer" aria-label="search Item" aria-describedby="basic-addon2">
+            </div>
+
+
+            <div>
+                <button  type="button" class="btn btn-warning  float-end mb-3 fw-bold mt-2" id="btnCustomerSearch" > search </button>
+            </div>
+
+            <div class="mt-2">
+                <button type="button" class="btn btn-success me-2 float-end mb-3" id="updateCustomer" > Update Customer</button>
+                <button type="button" class="btn btn-dark me-2 float-end mb-3" id="addCustomer"> Add Customer </button>
+                <button type="button" class="btn btn-danger me-2 float-end mb-3" id="deleteCustomer"> Delete Customer </button>
+                <button type="button" class="btn btn-primary me-2 float-end mb-3 "  id="clearTextCustomer"> clear </button>
+
+            </div>
+
+
+        </div>
+
+        <hr>
+    </div>
+
+</form>
+
+
+
+
+
+</body>
+</html>
