@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="565337bc-1ffc-45b7-8747-3748d26152f7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/14_fileUploader/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,7 +23,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../.gitignore" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -36,6 +36,7 @@
       <option name="presentableId" value="Default" />
       <updated>1656032186754</updated>
       <workItem from="1656032187942" duration="168000" />
+      <workItem from="1656034080864" duration="41000" />
     </task>
     <servers />
   </component>
@@ -43,6 +44,10 @@
     <option name="version" value="2" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="549" y="163" key="FileChooserDialogImpl" timestamp="1656034120724">
+      <screen x="0" y="0" width="1536" height="816" />
+    </state>
+    <state x="549" y="163" key="FileChooserDialogImpl/0.0.1536.816/-1920.0.1280.672@0.0.1536.816" timestamp="1656034120724" />
     <state x="209" y="92" key="new project wizard" timestamp="1656032271264">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
