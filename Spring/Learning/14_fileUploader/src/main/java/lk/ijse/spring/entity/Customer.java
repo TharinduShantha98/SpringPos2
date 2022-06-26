@@ -18,15 +18,19 @@ import javax.persistence.Lob;
 @Entity
 public class Customer {
     @Id
-    private String id;
+    private String customerId;
     private String firstName;
-    private String LastName;
-    private String Address;
+    private String lastName;
+    private String address;
     private String telNo;
-    private String Email;
+    private String email;
+
+
     @Lob
-    @Column(name = "photo", columnDefinition = "BLOB")
-    private MultipartFile files;
+    @Column(name = "photo")
+    private byte[] pImage;
+
+    //private MultipartFile pImage;
 
     
 

@@ -30,7 +30,7 @@ public class JpaConfig {
 
 
     @Bean
-    public LocalContainerEntityManagerFactoryBean entityManagerFactoryBean(DataSource dataSource,
+    public LocalContainerEntityManagerFactoryBean entityManagerFactory(DataSource dataSource,
                                                                            JpaVendorAdapter jpaVendorAdapter){
 
         LocalContainerEntityManagerFactoryBean LBean = new LocalContainerEntityManagerFactoryBean();
