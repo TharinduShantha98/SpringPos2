@@ -16,6 +16,45 @@
         }
 
 
+        #formFile{
+            width: 30vw;
+
+        }
+
+        #formDiv{
+            width: 50vw;
+
+        }
+
+        .mainDiv{
+            position: relative;
+            left: 4%;
+            background-color: gray;
+
+
+        }
+
+
+        #imageView{
+            position: relative;
+            width: 30vw;
+            height: 40vh;
+            background-color: #746969;
+            left: 10%;
+
+        }
+
+        #imageView>label{
+            position: relative;
+            text-align: center;
+            left: 18%;
+            color: black;
+            font-size: 20px;
+
+
+        }
+
+
 
 
     </style>
@@ -26,66 +65,68 @@
 <body>
 <h1 id="header">Customer file upload</h1>
 
-    <div class="row">
+   <!-- <div class="row">-->
         <form id="customerForm" enctype="multipart/form-data" method="post">
-            <div class=" col-sm-12 col-lg-8" >
+            <div class=" col-sm-12 col-lg-11 mainDiv "  id=""  >
 
-                <label class="form-label fw-bold text-dark">Add New Customer </label>
+                <label class="form-label fw-bold text-dark ms-4">Add New Customer </label>
 
                 <div>
-                    <label class="form-label  text-primary m-0">CustomerId </label>
+                    <label class="form-label  text-dark m-0">CustomerId </label>
                 </div>
                 <div class="input-group mb-1">
-                    <input type="text" name="customerId" class="form-control me-3 " id="customerId" placeholder="customer Id" aria-label="customerId" aria-describedby="basic-addon1">
+                    <input type="text" name="customerId" class="form-control ms-3 me-3 " id="customerId" placeholder="customer Id" aria-label="customerId" aria-describedby="basic-addon1">
                     <p class="form-label   ms-1 mt-2 " id="validationC6"> </p>
                 </div>
                 <div class="row">
                     <div  class="col-lg-6">
-                        <label class="form-label  text-primary m-0">First Name </label>
+                        <label class="form-label  text-dark m-0">First Name </label>
                         <div class="input-group mb-1">
-                            <input id="customerFName" type="text" name= "firstName" class="form-control " placeholder="First name" aria-label="First Name" aria-describedby="basic-addon1">
+                            <input id="customerFName" type="text" name= "firstName" class="form-control ms-3 " placeholder="First name" aria-label="First Name" aria-describedby="basic-addon1">
                             <p class="form-label   ms-1  me-3 mt-2 " id="validationC1"> </p>
                         </div>
-                        <label class="form-label  text-primary m-0">Address </label>
+                        <label class="form-label  text-dark m-0">Address </label>
                         <div class="input-group mb-1">
-                            <input id="customerAddress" type="text"  name="address" class="form-control" placeholder="Address" aria-label="Address" aria-describedby="basic-addon2">
+                            <input id="customerAddress" type="text"  name="address" class="form-control ms-3" placeholder="Address" aria-label="Address" aria-describedby="basic-addon2">
                             <p class="form-label   ms-1  me-3 mt-2 " id="validationC3"> </p>
                         </div>
                     </div>
                     <div class="col-lg-6">
-                        <label class="form-label  text-primary m-0">Last Name </label>
+                        <label class="form-label  text-dark m-0">Last Name </label>
                         <div class="input-group mb-1">
-                            <input id="customerLName" type="text"  name="lastName" class="form-control" placeholder="Last name" aria-label="Last Name" aria-describedby="basic-addon1">
+                            <input id="customerLName" type="text"  name="lastName" class="form-control ms-3" placeholder="Last name" aria-label="Last Name" aria-describedby="basic-addon1">
                             <p class="form-label   ms-1  me-3 mt-2 " id="validationC2"> </p>
                         </div>
 
-                        <label class="form-label  text-primary m-0">Tel Number </label>
+                        <label class="form-label  text-dark m-0">Tel Number </label>
                         <div class="input-group mb-1">
-                            <input id="customerTelNum" type="text" name="telNo" class="form-control " placeholder="Tel number " aria-label="tel Number" aria-describedby="basic-addon2">
+                            <input id="customerTelNum" type="text" name="telNo" class="form-control ms-3 " placeholder="Tel number " aria-label="tel Number" aria-describedby="basic-addon2">
                             <p class="form-label   ms-1  me-3 mt-2 " id="validationC5"> </p>
                         </div>
 
                     </div>
 
                 </div>
-                <label class="form-label  text-primary m-0">Email Address </label>
+                <label class="form-label  text-dark m-0">Email Address </label>
                 <div class="input-group mb-3">
-                    <input id="customerEmail" type="text"  name="email" class="form-control" placeholder="Email" aria-label="Email" aria-describedby="basic-addon2">
+                    <input id="customerEmail" type="text"  name="email" class="form-control ms-3" placeholder="Email" aria-label="Email" aria-describedby="basic-addon2">
                     <p class="form-label   ms-1  me-3 mt-2 " id="validationC4"> </p>
                 </div>
-                <div class="mb-3">
-                    <label for="formFile" class="form-label text-primary m-0">Add Customer image </label>
-                    <input class="form-control" type="file" id="formFile" name="pImage">
+
+                <div class="mb-3" id="formDiv">
+                    <label for="formFile" class="form-label text-dark m-0">Add Customer image </label>
+                    <input class="form-control ms-3  me-3 mb-4 " type="file" id="formFile" name="pImage">
+                    <p class="form-label   ms-1  me-3 mt-2 " id="validationC7">
                 </div>
 
             </div>
         </form>
-        <div class="col-lg-4 mt-2" >
+        <div class="col-lg-11 mt-2 mainDiv" >
             <div>
                 <h1 class="fs-2" id="customerManage">Customer Manage</h1>
             </div>
-            <div class="mt-2">
-                <input name="customerSearch" type="text" class="form-control ms-2 border-dark" id="customerSearch" placeholder="Search Customer" aria-label="search Item" aria-describedby="basic-addon2">
+            <div class="mt-2 me-4">
+                <input name="customerSearch" type="text" class="form-control ms-2    border-dark" id="customerSearch" placeholder="Search Customer" aria-label="search Item" aria-describedby="basic-addon2">
             </div>
             <div>
                 <button  type="button" class="btn btn-warning  float-end mb-3 fw-bold mt-2" id="btnCustomerSearch" > search </button>
@@ -99,10 +140,34 @@
             </div>
 
 
+
+
         </div>
 
-        <hr>
+
+<div class="row">
+    <div id="imageView">
+        <label>Image for search customer</label>
+
+      <img src="" id >
+
+
+
+
     </div>
+
+
+
+
+</div>
+
+
+<!--        <hr>-->
+<!--
+    </div>
+-->
+
+
 
 
 
@@ -149,10 +214,36 @@
 
 
         })
-
-
-
     })
+
+
+        $("#btnCustomerSearch").click(function () {
+            console.log("hiiiiiiiiii");
+            let customerId = $("#customerSearch").val();
+
+
+            $.ajax({
+                url:"http://localhost:8080/14_fileUploader_war/customer/search?id=C00-006",
+                method:"GET",
+
+                success:function (resp) {
+                    console.log(resp);
+
+                }
+
+
+
+
+            })
+
+
+
+
+
+
+
+
+        })
 
 
 

@@ -6,6 +6,7 @@ import lk.ijse.spring.entity.Customer;
 public interface CustomerService {
 
     void saveCustomer(CustomerDTO customerDTO);
+    Customer searchCustomer(String id);
 
 
 }

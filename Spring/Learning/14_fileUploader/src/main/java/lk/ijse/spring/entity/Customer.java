@@ -29,8 +29,16 @@ public class Customer {
     @Lob
     @Column(name = "photo")
     private byte[] pImage;
+    private String fileName;
+    private  String fileType;
 
-    //private MultipartFile pImage;
+
+
+
+
+
+
+
 
     
 

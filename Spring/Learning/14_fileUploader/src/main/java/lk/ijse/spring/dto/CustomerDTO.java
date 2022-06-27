@@ -19,8 +19,11 @@ public class CustomerDTO {
     private String address;
     private String telNo;
     private String email;
-   // private byte[] pImage;
+    //private byte[] pImage;
     private MultipartFile pImage;
+
+
+
 
 
 
