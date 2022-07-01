@@ -55,8 +55,6 @@ public class CustomerController {
         Customer customer = customerService.searchCustomer(id);
         return  new ResponseUtil(200, "get Successfully", customer);
 
-
-
     }
 
 

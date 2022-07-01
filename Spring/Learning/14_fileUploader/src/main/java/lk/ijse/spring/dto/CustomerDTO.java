@@ -12,7 +12,6 @@ import org.springframework.web.multipart.MultipartFile;
 @ToString
 public class CustomerDTO {
 
-
     private String customerId;
     private String firstName;
     private String lastName;
